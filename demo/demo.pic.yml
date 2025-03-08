@@ -1,5 +1,8 @@
 # yaml-language-server: $schema=...
-instances: {}
+instances:
+  r1:
+    component: ring_single
+    settings: {}
 connections: {}
 routes: {}
 ports: {}
