@@ -20,7 +20,7 @@ dependencies = [
 description = "DoData tutorials"
 keywords = ["python"]
 license = {file = "LICENSE"}
-name = "dodata_tutorials"
+name = "demo"
 readme = "README.md"
 requires-python = ">=3.11,<3.13"
 version = "0.0.1"
@@ -43,6 +43,9 @@ docs = [
 ignore-words-list = "te, te/tm, te, ba, fpr, fpr_spacing, ro, nd, donot, schem"
 skip = "pyproject.toml, uv.lock"
 
+[tool.gdsfactoryplus.pdk]
+name = "demo"
+
 [tool.mypy]
 python_version = "3.11"
 strict = true
@@ -56,8 +59,8 @@ strict = true
 # addopts = --tb=no
 addopts = '--tb=short'
 norecursedirs = ["extra/*.py"]
-python_files = ["dodata_tutorials/*.py", "notebooks/*.ipynb", "tests/*.py"]
-testpaths = ["dodata_tutorials/", "tests"]
+python_files = ["demo/*.py", "notebooks/*.ipynb", "tests/*.py"]
+testpaths = ["demo/", "tests"]
 
 [tool.ruff]
 fix = true
@@ -98,7 +101,7 @@ src = "README.md"
 src = "pyproject.toml"
 
 [[tool.tbump.file]]
-src = "dodata_tutorials/__init__.py"
+src = "demo/__init__.py"
 
 [tool.tbump.git]
 message_template = "Bump to {new_version}"

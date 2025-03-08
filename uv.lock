@@ -1,8 +1,8 @@
 version = 1
 requires-python = ">=3.11, <3.13"
 resolution-markers = [
-    "python_full_version >= '3.12'",
     "python_full_version < '3.12'",
+    "python_full_version >= '3.12'",
 ]
 
 [[package]]
@@ -280,7 +280,7 @@ name = "click"
 version = "8.1.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "colorama", marker = "platform_system == 'Windows'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/b9/2e/0090cbf739cee7d23781ad4b89a9894a41538e4fcf4c31dcdd705b78eb8b/click-8.1.8.tar.gz", hash = "sha256:ed53c9d8990d83c2a27deae68e4ee337473f6330c040a31d4225c9574d16096a", size = 226593 }
 wheels = [
@@ -418,6 +418,43 @@ wheels = [
 ]
 
 [[package]]
+name = "demo"
+version = "0.0.1"
+source = { editable = "." }
+dependencies = [
+    { name = "dodata", extra = ["demos"] },
+    { name = "klayout" },
+]
+
+[package.optional-dependencies]
+dev = [
+    { name = "pre-commit" },
+    { name = "pytest" },
+    { name = "pytest-cov" },
+    { name = "pytest-github-actions-annotate-failures" },
+    { name = "pytest-regressions" },
+]
+docs = [
+    { name = "jupyter-book" },
+    { name = "jupytext" },
+    { name = "matplotlib" },
+]
+
+[package.metadata]
+requires-dist = [
+    { name = "dodata", extras = ["demos"], specifier = "~=0.7.0" },
+    { name = "jupyter-book", marker = "extra == 'docs'", specifier = ">=0.15.1,<1.1" },
+    { name = "jupytext", marker = "extra == 'docs'" },
+    { name = "klayout", specifier = "==0.29.11" },
+    { name = "matplotlib", marker = "extra == 'docs'" },
+    { name = "pre-commit", marker = "extra == 'dev'" },
+    { name = "pytest", marker = "extra == 'dev'" },
+    { name = "pytest-cov", marker = "extra == 'dev'" },
+    { name = "pytest-github-actions-annotate-failures", marker = "extra == 'dev'" },
+    { name = "pytest-regressions", marker = "extra == 'dev'" },
+]
+
+[[package]]
 name = "distlib"
 version = "0.3.9"
 source = { registry = "https://pypi.org/simple" }
@@ -476,43 +513,6 @@ dependencies = [
 sdist = { url = "https://files.pythonhosted.org/packages/07/9e/23a386ea8f396713c8f59cc4411bef4a6d5e8552b4da0240f55144251113/dodata_core-0.5.1.tar.gz", hash = "sha256:8e542c1a5ce38c8560e4f21947e91b92831425ce7664db06d8f6b6563a4bc485", size = 10906 }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/6a/6d/b1633b45762c30dbaeb5445d96e09c920101d96509689771a6c5926167a6/dodata_core-0.5.1-py3-none-any.whl", hash = "sha256:84defed1c3c39c02c25e6d45f37fdefbda371f4714ec03e4ac5a93e1d7734911", size = 6206 },
-]
-
-[[package]]
-name = "dodata-tutorials"
-version = "0.0.1"
-source = { editable = "." }
-dependencies = [
-    { name = "dodata", extra = ["demos"] },
-    { name = "klayout" },
-]
-
-[package.optional-dependencies]
-dev = [
-    { name = "pre-commit" },
-    { name = "pytest" },
-    { name = "pytest-cov" },
-    { name = "pytest-github-actions-annotate-failures" },
-    { name = "pytest-regressions" },
-]
-docs = [
-    { name = "jupyter-book" },
-    { name = "jupytext" },
-    { name = "matplotlib" },
-]
-
-[package.metadata]
-requires-dist = [
-    { name = "dodata", extras = ["demos"], specifier = "~=0.7.0" },
-    { name = "jupyter-book", marker = "extra == 'docs'", specifier = ">=0.15.1,<1.1" },
-    { name = "jupytext", marker = "extra == 'docs'" },
-    { name = "klayout", specifier = "==0.29.11" },
-    { name = "matplotlib", marker = "extra == 'docs'" },
-    { name = "pre-commit", marker = "extra == 'dev'" },
-    { name = "pytest", marker = "extra == 'dev'" },
-    { name = "pytest-cov", marker = "extra == 'dev'" },
-    { name = "pytest-github-actions-annotate-failures", marker = "extra == 'dev'" },
-    { name = "pytest-regressions", marker = "extra == 'dev'" },
 ]
 
 [[package]]
@@ -841,7 +841,7 @@ name = "ipykernel"
 version = "6.29.5"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "appnope", marker = "sys_platform == 'darwin'" },
+    { name = "appnope", marker = "platform_system == 'Darwin'" },
     { name = "comm" },
     { name = "debugpy" },
     { name = "ipython" },
@@ -3030,7 +3030,7 @@ name = "tqdm"
 version = "4.67.1"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
-    { name = "colorama", marker = "sys_platform == 'win32'" },
+    { name = "colorama", marker = "platform_system == 'Windows'" },
 ]
 sdist = { url = "https://files.pythonhosted.org/packages/a8/4b/29b4ef32e036bb34e4ab51796dd745cdba7ed47ad142a9f4a1eb8e0c744d/tqdm-4.67.1.tar.gz", hash = "sha256:f8aef9c52c08c13a65f30ea34f4e5aac3fd1a34959879d7e59e63027286627f2", size = 169737 }
 wheels = [
