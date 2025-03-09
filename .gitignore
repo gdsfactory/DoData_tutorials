@@ -8,6 +8,8 @@ Pipfile
 *.so
 *.fsp
 *.gds
+*.csv
+*.json
 
 # Distribution / packaging
 .Python
